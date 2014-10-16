@@ -9,10 +9,10 @@
 	$html_tasks = null;
 
 	// Вывод элементом
-	// $html_tasks = $this->element('clients-tasks-out', array('client' => $client['Task']));
+	$html_tasks = $this->element('clients-tasks-out', array('client' => $client['Task']));
 
 	// Вывод хелперомы
-	$html_tasks = $this->View->clients_tasks_out($client['Task']);
+	// $html_tasks = $this->View->clients_tasks_out($client['Task']);
 
 	echo $html_tasks;
 ?>

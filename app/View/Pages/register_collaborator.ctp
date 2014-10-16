@@ -6,9 +6,6 @@
 	echo $this->Form->input('User.password', array('label' => 'Пароль', 'placeholder' => 'пароль'));
 	echo $this->Form->input('User.phone', array('label' => 'Сот. телефон', 'placeholder' => '87011231212'));
 
-	echo $this->Form->input('Company.name', array('label' => 'Название компании'));
-	echo $this->Form->input('Company.description', array('label' => 'Описание', 'type' => 'textarea'));
-
 	echo $this->Form->submit('Зарегистрироваться', array('class' => 'btn btn-success'));
 
 	echo $this->Form->end();

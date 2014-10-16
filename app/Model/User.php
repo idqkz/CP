@@ -4,12 +4,12 @@ App::uses('Model', 'Model');
 class User extends AppModel {
 
 	public $hasAndBelongsToMany = array(
-		'Client' => array(
-			'className' => 'Client'
+		'Task' => array(
+			'className' => 'Task'
 		)
 	);
 
-	// public $hasAndBelongsToMany = array('Task');
+	public $belongsTo = array('Company');
 
 	public function beforeSave($options = array()) {
 

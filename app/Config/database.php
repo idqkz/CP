@@ -1,7 +1,7 @@
 <?php
 class DATABASE_CONFIG {
 
-	public $default = array(
+	public $denwer = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'localhost',
@@ -38,10 +38,10 @@ class DATABASE_CONFIG {
 		if (strpos(env('HTTP_HOST'), 'dev.idq.kz') !== false) {
 			// use site_one database config
 			$this->default = $this->dev_yy;
-
-		// elseif site_two
+		} elseif (strpos(env('HTTP_HOST'), 'cake.cp.com') !== false) {
+			// use denwer database config
+			$this->default = $this->denwer;
 		} else {
-
 			// use site_two database config
 			$this->default = $this->live;
 		}

@@ -16,7 +16,6 @@
 				'type' => 'date'
 				)
 		);
-
 	echo $this->element('pages-form-buttons');
 
 	echo $this->Form->end();

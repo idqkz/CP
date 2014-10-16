@@ -1,15 +1,14 @@
 <?php 
-
 	$add_client_link = $this->Html->link('Добавить клиента', 
-		array('controller' => 'pages', 'action' => 'create_client'),
+		array('controller' => 'pages', 'action' => 'add_client_to_company', $id),
 		array('class' => 'btn btn-success')
 		);
 
-	echo $this->Html->tag('h2', 'Клиенты компании '.$add_client_link);
+	echo $this->Html->tag('h2', 'Клиенты компании'.$add_client_link);
 
 	$html_clients = null;
 
-	foreach ($clients['Company']['Client'] as $client) {
+	foreach ($clients['Client'] as $client) {
 
 		$html_client = $this->Html->div('col-3', $client['name']);
 		$chane_link = $this->Html->link('Изменить', 
@@ -24,4 +23,5 @@
 	}
 
 	echo $html_clients;
+
 ?>

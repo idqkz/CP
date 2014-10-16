@@ -7,7 +7,7 @@
 		<?php echo $this->Form->input('User.password', array('placeholder'=>'Пароль', 'div' => false)); ?>
 		<i class='glyphicon link link-primary'>показать</i>
 	</div>
-<?
+<?php
 	echo $this->Form->submit('войти', array('class' => 'btn btn-success'));
 	echo $this->Form->end();
 
