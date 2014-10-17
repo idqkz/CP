@@ -4,7 +4,83 @@
 		"selected_items":
 		[
 			[
+				"T",
+				"time_nanosleep"
+			],
+			[
+				"u",
+				"user"
+			],
+			[
+				"html",
+				"html_tasks"
+			],
+			[
 				"compa",
+				"compact"
+			],
+			[
+				"cli",
+				"clients"
+			],
+			[
+				"sav",
+				"save"
+			],
+			[
+				"task",
+				"TasksUser"
+			],
+			[
+				"sv",
+				"save_data"
+			],
+			[
+				"sae",
+				"save_data"
+			],
+			[
+				"a",
+				"array"
+			],
+			[
+				"comp",
+				"compact"
+			],
+			[
+				"find",
+				"findById"
+			],
+			[
+				"Tas",
+				"Task"
+			],
+			[
+				"th",
+				"threaded"
+			],
+			[
+				"cont",
+				"contain"
+			],
+			[
+				"regis",
+				"register_link"
+			],
+			[
+				"in",
+				"info"
+			],
+			[
+				"C",
+				"Company"
+			],
+			[
+				"com",
+				"company"
+			],
+			[
+				"cop",
 				"company"
 			],
 			[
@@ -20,36 +96,12 @@
 				"data_save"
 			],
 			[
-				"com",
-				"companies"
-			],
-			[
 				"co",
 				"company"
 			],
 			[
-				"find",
-				"findById"
-			],
-			[
 				"con",
 				"contain"
-			],
-			[
-				"C",
-				"Client"
-			],
-			[
-				"cont",
-				"Containable"
-			],
-			[
-				"Tas",
-				"TasksUser"
-			],
-			[
-				"cli",
-				"client"
 			],
 			[
 				"Cl",
@@ -96,10 +148,6 @@
 				"client_id"
 			],
 			[
-				"T",
-				"tcpwrap_check"
-			],
-			[
 				"uns",
 				"unset"
 			],
@@ -110,10 +158,6 @@
 			[
 				"Th",
 				"threaded"
-			],
-			[
-				"html",
-				"html_tasks"
 			],
 			[
 				"els",
@@ -383,7 +427,7 @@
 			"file": "app/Controller/PagesController.php",
 			"settings":
 			{
-				"buffer_size": 8192,
+				"buffer_size": 11240,
 				"line_ending": "Unix"
 			}
 		},
@@ -396,42 +440,18 @@
 			}
 		},
 		{
-			"file": "app/View/Pages/my_companies.ctp",
+			"file": "app/View/Pages/my_tasks.ctp",
 			"settings":
 			{
-				"buffer_size": 841,
+				"buffer_size": 720,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/View/Elements/clients-tasks-out.ctp",
+			"file": "app/View/Pages/new_task.ctp",
 			"settings":
 			{
-				"buffer_size": 1578,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/View/Pages/register.ctp",
-			"settings":
-			{
-				"buffer_size": 718,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/Model/User.php",
-			"settings":
-			{
-				"buffer_size": 747,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/View/Pages/view_all_clients.ctp",
-			"settings":
-			{
-				"buffer_size": 631,
+				"buffer_size": 572,
 				"line_ending": "Windows"
 			}
 		}
@@ -460,23 +480,32 @@
 	},
 	"file_history":
 	[
+		"/E/programs/denwer/home/cake.cp.com/www/app/View/Pages/my_tasks.ctp",
+		"/C/Users/Алексей/Desktop/init.css",
 		"/E/programs/denwer/home/cake.cp.com/www/app/View/Elements/clients-tasks-out.ctp",
-		"/E/programs/denwer/home/cake.cp.com/www/app/Model/Task.php",
+		"/E/programs/denwer/home/cake.cp.com/www/app/Model/Company.php",
 		"/E/programs/denwer/home/cake.cp.com/www/app/Model/User.php",
+		"/C/Users/Алексей/AppData/Local/Temp/_tcx/0/0/cp.idq.kz/app/Controller/PagesController.php",
+		"/E/programs/denwer/home/cake.cp.com/www/app/View/Pages/commit_task.ctp",
+		"/E/programs/denwer/home/cake.cp.com/www/app/View/Pages/new_task.ctp",
+		"/E/programs/denwer/home/cake.cp.com/www/app/View/Pages/register_collaborator.ctp",
+		"/E/programs/denwer/home/cake.cp.com/www/app/View/Pages/collaborators.ctp",
+		"/E/programs/denwer/home/cake.cp.com/www/app/View/Pages/company.ctp",
+		"/E/programs/denwer/home/cake.cp.com/www/app/View/Pages/my_companies.ctp",
+		"/E/programs/denwer/home/cake.cp.com/www/app/View/Pages/view_all_clients.ctp",
+		"/E/programs/denwer/home/cake.cp.com/www/app/View/Pages/user_add_to_company.ctp",
+		"/E/programs/denwer/home/cake.cp.com/www/app/View/Pages/add_client_to_company.ctp",
+		"/E/programs/denwer/home/cake.cp.com/www/app/View/Pages/register.ctp",
+		"/E/programs/denwer/home/cake.cp.com/www/app/Model/Task.php",
 		"/E/programs/denwer/home/cake.cp.com/www/app/View/Pages/give_task.ctp",
 		"/E/programs/denwer/home/cake.cp.com/www/app/View/Pages/view_client_with_task.ctp",
 		"/E/programs/denwer/home/cake.cp.com/www/app/View/Helper/ViewHelper.php",
 		"/E/programs/denwer/home/cake.cp.com/www/app/View/Pages/clients_company.ctp",
-		"/E/programs/denwer/home/cake.cp.com/www/app/View/Pages/add_client_to_company.ctp",
-		"/E/programs/denwer/home/cake.cp.com/www/app/View/Pages/user_add_to_company.ctp",
-		"/E/programs/denwer/home/cake.cp.com/www/app/View/Pages/my_companies.ctp",
 		"/E/programs/denwer/home/cake.cp.com/www/app/View/Pages/create_client.ctp",
 		"/E/programs/denwer/home/cake.cp.com/www/app/View/Pages/choose_client_to_company.ctp",
 		"/E/programs/denwer/home/cake.cp.com/www/app/View/Pages/login.ctp",
 		"/E/programs/denwer/home/cake.cp.com/www/app/Model/Group.php",
-		"/E/programs/denwer/home/cake.cp.com/www/app/View/Pages/company.ctp",
 		"/E/programs/denwer/home/cake.cp.com/www/app/Config/database.php",
-		"/C/Users/Алексей/AppData/Local/Temp/_tcx/0/0/cp.idq.kz/app/Controller/PagesController.php",
 		"/E/programs/denwer/home/my.new.cake.for.work/www/README.md",
 		"/E/programs/denwer/home/my.new.cake.for.work/www/lib/Cake/VERSION.txt",
 		"/C/Users/Алексей/AppData/Local/Temp/_tcx/0/0/public_html/app/View/Admin/users.ctp",
@@ -484,8 +513,6 @@
 		"/C/Users/Алексей/AppData/Local/Temp/_tcx/0/0/public_html/app/View/Admin/objects_all.ctp",
 		"/C/Users/Алексей/AppData/Local/Temp/_tcx/0/0/public_html/app/View/Admin/news_all.ctp",
 		"/E/programs/denwer/home/cake.cp.com/www/app/Model/Client.php",
-		"/E/programs/denwer/home/cake.cp.com/www/app/View/Pages/new_task.ctp",
-		"/E/programs/denwer/home/cake.cp.com/www/app/View/Pages/view_all_clients.ctp",
 		"/C/Users/Алексей/AppData/Local/Temp/_tcx/0/0/public_html/app/View/Admin/login.ctp",
 		"/C/Users/Алексей/AppData/Local/Temp/_tcx/0/0/public_html/app/View/Admin/jobs_category.ctp",
 		"/C/Users/Алексей/AppData/Local/Temp/_tcx/0/0/public_html/app/View/Admin/jobs.ctp",
@@ -499,7 +526,6 @@
 		"/E/programs/denwer/home/cake.cp.com/www/app/View/Helper/View.php",
 		"/E/programs/denwer/home/cake.cp.com/www/app/View/Helper/View",
 		"/E/programs/denwer/home/cake.cp.com/www/app/View/Pages/tasks_for_client.ctp",
-		"/E/programs/denwer/home/cake.cp.com/www/app/View/Pages/register.ctp",
 		"/E/programs/denwer/home/cake.cp.com/www/app/webroot/css/init.css",
 		"/E/programs/denwer/home/cake.cp.com/www/app/Config/core.php",
 		"/E/programs/denwer/home/cake.myblock.com/www/app/View/Elements/st-block-out.ctp",
@@ -581,13 +607,7 @@
 		"/E/programs/denwer/home/cake.chulki/www/app/View/Emails/html/default.ctp",
 		"/E/programs/denwer/home/cake.chulki/www/app/Controller/AdminController.php",
 		"/E/project/Суши.sublime-workspace",
-		"/E/programs/denwer/home/cake.suhi.com/www/app/View/Pages/home.ctp",
-		"/C/Users/Алексей/Desktop/User1.php",
-		"/C/Users/Алексей/Desktop/Group.php",
-		"/C/Users/Алексей/Desktop/User.php",
-		"/E/programs/denwer/home/cake.suhi.com/www/app/Model/User (2).php",
-		"/E/programs/denwer/home/cake.suhi.com/www/app/View/Pages/order_success.ctp",
-		"/E/programs/denwer/home/cake.suhi.com/www/app/View/Pages/basket.ctp"
+		"/E/programs/denwer/home/cake.suhi.com/www/app/View/Pages/home.ctp"
 	],
 	"find":
 	{
@@ -605,6 +625,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"user",
+			"2",
+			"3",
+			"varname",
+			"value",
+			"link",
 			"Behaviors",
 			"TasksUser",
 			"choose_client_to_company",
@@ -726,13 +752,7 @@
 			"blocks",
 			"new_",
 			"new_menu",
-			"blocks",
-			"wrapper",
-			"new_menu",
-			"new",
-			"wrappers",
-			"wra",
-			"Model"
+			"blocks"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -751,7 +771,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -759,15 +779,15 @@
 					"file": "app/Controller/PagesController.php",
 					"settings":
 					{
-						"buffer_size": 8192,
+						"buffer_size": 11240,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								980,
-								980
+								6860,
+								6860
 							]
 						],
 						"settings":
@@ -777,7 +797,7 @@
 							"word_wrap": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 270.0,
+						"translation.y": 720.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -794,8 +814,8 @@
 						"selection":
 						[
 							[
-								1085,
-								1085
+								209,
+								209
 							]
 						],
 						"settings":
@@ -804,25 +824,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 864.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "app/View/Pages/my_companies.ctp",
+					"file": "app/View/Pages/my_tasks.ctp",
 					"settings":
 					{
-						"buffer_size": 841,
+						"buffer_size": 720,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								628,
-								628
+								359,
+								359
 							]
 						],
 						"settings":
@@ -838,99 +858,18 @@
 				},
 				{
 					"buffer": 3,
-					"file": "app/View/Elements/clients-tasks-out.ctp",
+					"file": "app/View/Pages/new_task.ctp",
 					"settings":
 					{
-						"buffer_size": 1578,
+						"buffer_size": 572,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1008,
-								1008
-							]
-						],
-						"settings":
-						{
-							"spell_check": true,
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 486.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/View/Pages/register.ctp",
-					"settings":
-					{
-						"buffer_size": 718,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								481,
-								481
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/Model/User.php",
-					"settings":
-					{
-						"buffer_size": 747,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								157,
-								157
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "app/View/Pages/view_all_clients.ctp",
-					"settings":
-					{
-						"buffer_size": 631,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								58,
-								58
+								368,
+								368
 							]
 						],
 						"settings":
@@ -996,6 +935,10 @@
 		"height": 706.0,
 		"selected_items":
 		[
+			[
+				"suh",
+				"/E/programs/denwer/home/cake.suhi.com/www/Годзила.sublime-project"
+			],
 			[
 				"",
 				"/E/programs/denwer/home/cake.suhi.com/www/Годзила суши.sublime-project"

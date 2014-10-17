@@ -3,13 +3,20 @@ App::uses('Model', 'Model');
 
 class Company extends AppModel {
 
-	public $hasAndBelongsToMany = array(
+	public $hasMany = array(
+		'User' => array(
+			'className' => 'User'
+		),
 		'Client' => array(
 			'className' => 'Client'
-		)
+			)
 	);
 
-	public $hasMany = array('User');
+	public $belongsTo = array(
+		'Creater' => array(
+			'className' => 'User'
+		)
+	);
 
 	public function beforeSave($options = array()) {
 		$this->data['Company']['code'] = $this->generate_code();

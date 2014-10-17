@@ -1,3 +1,14 @@
+/*
+
+init css is designed much like bootstrap 
+but instead of concentrating on tags and semantics
+it uses self descriptive classes which can be applied
+to any tag, so minimal number of tags can be used.
+Large number of self descriptive classes but being 
+self descriptive tags are much easier to remember
+
+*/
+
 /* reset */
 body, div, p, h1, h2, h3, input, label, ul, li, ol {
 	margin: 0px;
@@ -21,12 +32,22 @@ a, .link, a * {
 	color: inherit;
 }
 
+/* 
+
+	text hierarchy
+
+	font-size specified for body and html tags only
+	rest of the sizes are cpecified in "rem" to avoid inheritance
+
+*/
+
 html {
 	font-size: 40px;
 	width: 100%;
 }
 
 body {
+	font-size: 100%;
 	-webkit-font-smoothing: antialiased;
 	-moz-font-smoothing: antialiased;
 	-o-font-smoothing: antialiased;
@@ -34,45 +55,104 @@ body {
 	position: relative;
 	height: 100%;
 	min-height: 100%;
-	min-width: 1100px;
 }
 
-.container {
-	width: 1000px;
-	margin: 0 auto;
+.text-size-1 {
+	font-size: 1rem;
+}
+
+.text-size-2 {
+	font-size: .75rem;
+}
+
+.text-size-3 {
+	font-size: .5rem;
+}
+
+.text-size-4 {
+	font-size: .4rem;
+}
+
+.text-size-5 {
+	font-size: .35rem;
+}
+
+.text-size-6 {
+	font-size: .3rem;
+}
+
+
+/*
+
+	basic colors, for each theme red can be different
+	but there still might be a red color
+
+	TODO: may be it's better to describe similarly to bootstrap, by intended use?;
+
+*/
+
+.text-color-default {
+	color: #000;
+}
+
+.text-color-info {
+	color: #fff;
+}
+
+.text-color-warning {
+	color: #f00;
 }
 
 /*
-	ссылки
+	margins 
 */
-.link {
-	display: inline-block;
+
+.margin-top-half {
+	margin-top: .25rem;
 }
 
-.link.link-primary {
-	border-bottom: solid 1px;
+.margin-top {
+	margin-top: .5rem;
 }
 
-.hidden {
-	display: none;
+.margin-top-double {
+	margin-top: 1rem;
 }
 
-/*
-	списки
-*/
-ul, ol {
+.margin-bottom-half {
+	margin-bottom: .25rem;
+}
+
+.margin-bottom {
+	margin-bottom: .5rem;
+}
+
+.margin-bottom-double {
+	margin-bottom: 1rem;
+}
+
+.margin-left-half {
+	margin-left: .25rem;
+}
+
+.margin-left {
 	margin-left: .5rem;
 }
 
+.margin-left-double {
+	margin-left: 1rem;
+}
 
-/*
-	формы
-*/
-form .required {
-	opacity: 0;
-	width: 0px;
-	height: 0px;
-	overflow: hidden;
+.margin-right-half {
+	margin-right: .25rem;
+}
+
+.margin-right {
+	margin-right: .5rem;
+}
+
+.margin-right-double {
+	margin-right: 1rem;
 }
 
 /*
@@ -90,6 +170,12 @@ form .required {
 	border-top: solid 1px rgba(255, 255, 255, .5);
 	border-bottom: solid 1px rgba(0, 0, 0, .5);
 	border-radius: 3px;
+	cursor: pointer;
+	display: inline-block;
+}
+
+.btn * {
+	cursor: pointer;
 }
 
 .btn:hover {
@@ -121,26 +207,6 @@ form .required {
 
 .btn.btn-primary:hover {
 	background-color: rgba(63, 163, 239, .9);
-}
-
-
-.t4 {
-	font-size: .4rem;
-}
-
-/*
-	тексты
-*/
-.text-center {
-	text-align: center;
-}
-
-.text-left {
-	text-align: left;
-}
-
-.text-right {
-	text-align: right;
 }
 
 /*
@@ -185,87 +251,3 @@ form .required {
 .col-10 {
 	width: 100%;
 }
-
-/*
-
-*/
-
-.float-left {
-	float: left;
-}
-
-.float-right {
-	float: right;
-}
-
-/*
-	отсчет времени
-*/
-
-.special-wrapper .counter .time p {
-	float: left;
-	width: 37px;
-	height: 52px;
-	background-image: url('../img/theme/bg-counter.svg');
-	background-repeat: no-repeat;
-	background-position: center center;
-	text-align: center;
-	margin: 0 2px;
-	position: relative;
-}
-
-.special-wrapper .counter .time p:nth-of-type(2),
-.special-wrapper .counter .time p:nth-of-type(1) {
-	display: none;
-}
-
-.special-wrapper .counter .time p:nth-of-type(6),
-.special-wrapper .counter .time p:nth-of-type(4),
-.special-wrapper .counter .time p:nth-of-type(2) {
-	margin-right: 35px;
-}
-
-.special-wrapper .counter .time p:nth-of-type(8):after,
-.special-wrapper .counter .time p:nth-of-type(6):after,
-.special-wrapper .counter .time p:nth-of-type(4):after,
-.special-wrapper .counter .time p:nth-of-type(2):after {
-	content: 'дни';
-	position: absolute;
-	bottom: 0px;
-	left: 40px;
-	color: #fff;
-	font-size: .35rem;
-	line-height: 1;
-}
-
-.special-wrapper .counter .time p:nth-of-type(4):after {
-	content: 'часы';
-}
-
-.special-wrapper .counter .time p:nth-of-type(6):after {
-	content: 'мин';
-}
-
-.special-wrapper .counter .time p:nth-of-type(8):after {
-	content: 'сек';
-}
-
-
-/*
-	блоки
-*/
-body > .block {
-	float: left;
-	width: 100%;
-}
-
-.cake-error {
-	margin-top: 0;
-}
-
-
-
-.col-15 {
-width: 100%;
-}
-

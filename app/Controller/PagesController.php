@@ -21,7 +21,7 @@ class PagesController extends AppController {
 		'Paginator'
 	);
 
-	public $uses = array('User', 'Client', 'Task', 'Company', 'ClientsCompany', 'CompaniesUser', 'TasksUser');
+	public $uses = array('User', 'Client', 'Task', 'Company', 'TasksUser');
 
 	public function beforeFilter() {
 		parent::beforeFilter();
@@ -43,8 +43,16 @@ class PagesController extends AppController {
 					)
 				),
 			'Сотдрудники'			=>	array('controller' => 'pages', 'action' => 'collaborators'),
-			'Ред. компанию'			=>	array('controller' => 'pages', 'action' => 'change_company'),			
+			'Ред. компанию'			=>	array('controller' => 'pages', 'action' => 'change_company'),	
+			'Мои задачи'			=>	array('controller' => 'pages', 'action' => 'my_tasks'),			
 		);
+
+		if(!$this->Auth->login()){
+			$main_menu_items = array(
+				'Логин'				=>	array('controller' => 'pages', 'action' => 'login'),
+				'Регистрация компании'			=>	array('controller' => 'pages', 'action' => 'register'),		
+			);
+		}
 
 		$this->set(compact('title_for_layout', 'main_menu_items'));
 	}
@@ -62,13 +70,15 @@ class PagesController extends AppController {
 		if (!empty($this->data)){
 			$count = $this->User->find('count', array('conditions' => array('email' => $this->data['User']['email'])));
 			if ($count == 0){
-				$this->User->save($this->data['User']);
+				$this->User->saveAll($this->data);
+				$this->request->data['Company']['id'] = $this->Company->getLastInsertId();
 				$this->request->data['Company']['user_id'] = $this->User->getLastInsertId();
 				$this->Company->save($this->data['Company']);
-				$this->request->data['User']['company_id'] = $this->Company->getLastInsertId();
-				$data_save['user_id'] = $this->request->data['user_id'];
-				$data_save['company_id'] = $this->Company->getLastInsertId();
-				$this->CompaniesUser->save($data_save);
+				$this->Session->setFlash('Вы успешно зарегистрированы');
+				// $this->request->data['User']['company_id'] = $this->Company->getLastInsertId();
+				// $data_save['user_id'] = $this->request->data['user_id'];
+				// $data_save['company_id'] = $this->Company->getLastInsertId();
+				// $this->CompaniesUser->save($data_save);
 			}
 		}
 	}
@@ -87,18 +97,16 @@ class PagesController extends AppController {
 
 	public function create_client() {
 		if(!empty($this->data)){
+			$this->request->data['Client']['company_id'] = $this->Auth->user('Company.id');
 			$this->Client->save($this->data);
-			$data_ClientsCompany = array(
-					'client_id' => $this->Client->getLastInsertId(),
-					'company_id' =>  $this->Auth->user('company_id'),
-				);
-			$this->ClientsCompany->save($data_ClientsCompany);
+			$this->Session->setFlash('Клиент создан');
 		}
 	}
 
 	public function delete_change_client($id = null) {
 		if($id != null){
-			$this->Clientjj->delete($id);
+			$this->Client->delete($id);
+			$this->Session->setFlash('Клиент удалён');
 			$this->redirect(array('controller' => 'pages', 'action' => 'view_all_clients'));
 		}
 	}
@@ -107,6 +115,7 @@ class PagesController extends AppController {
 		if(!empty($this->data)){
 			$this->Client->save($this->data['Client']);
 			$this->redirect(array('controller' => 'pages', 'action' => 'view_all_clients'));
+			$this->Session->setFlash('Клиент изменён');
 		}
 
 		if($id != null){
@@ -137,7 +146,6 @@ class PagesController extends AppController {
 		$this->User->Behaviors->load('Containable');
 		$this->User->contain('Company', 'Company.Client');
 		$clients = $this->User->findById($this->Auth->user('id'));
-		
 		$this->set(compact('clients'));
 	}
 
@@ -148,6 +156,7 @@ class PagesController extends AppController {
 			$this->request->data['Task']['parent_id'] = null;
 			$this->request->data['Task']['status'] = 1;
 			$this->Task->save($this->data);
+			$this->Session->setFlash('Задача успешно сохранена');
 			$this->redirect(array('controller' => 'pages', 'action' => 'view_client_with_task', $this->data['Task']['client_id']));
 		}
 
@@ -165,6 +174,7 @@ class PagesController extends AppController {
 			$this->Task->save($this->data);
 			$client_id = $this->data['Task']['client_id'];
 			unset($this->data);
+			$this->Session->setFlash('Задача успешно изменена');
 			$this->redirect(array('controller' => 'pages', 'action' => 'view_client_with_task', $client_id));
 		}
 
@@ -174,7 +184,7 @@ class PagesController extends AppController {
 		$this->render('new_task');
 	}
 
-	public function give_task($id = null) {
+	/*public function give_task($id = null) {
 		if(!empty($this->data)){
 			$this->TasksUser->save($this->data);
 			unset($this->data);
@@ -183,7 +193,7 @@ class PagesController extends AppController {
 		$users = $this->User->find('list');
 
 		$this->set(compact('users', 'id'));
-	}
+	}*/
 
 	public function take_task($id = null) {
 		$this->autoRender = false;
@@ -195,7 +205,23 @@ class PagesController extends AppController {
 			$save_data['id'] = $id;
 			$save_data['status'] = 2;
 			$this->Task->save($save_data);
+			$this->Session->setFlash('Задача успешно взята на исполнение');
 		}
+	}
+
+	public function my_tasks($id = null) {
+		$this->User->Behaviors->load('Containable');
+		$user = $this->User->find('first', array(
+			'conditions' => array('User.id' => $this->Auth->user('id')),
+			'contain' => array(
+				'Task' => array(
+					'conditions' => array('Task.status =' => 2),
+					'order' => 'Task.created DESC',
+				)),
+			));
+		$tasks = $user['Task'];
+
+		$this->set(compact('tasks'));
 	}
 
 	public function commit_task($id = null) {
@@ -205,6 +231,7 @@ class PagesController extends AppController {
 			}
 			$this->Task->save($this->data);
 			unset($this->data);
+			$this->Session->setFlash('Сохранено');
 		}
 
 		$task_status_list = array(
@@ -226,11 +253,12 @@ class PagesController extends AppController {
 			$client_id = $this->Task->findById($id);
 			$client_id = $client_id['Task']['client_id'];
 			$this->Task->delete($id);
+			$this->Session->setFlash('Задача успешно удалена');
 			$this->redirect(array('controller' => 'pages', 'action' => 'view_client_with_task', $client_id));
 		}
 	}
 
-	public function create_company() {
+	/*public function create_company() {
 		if(!empty($this->data)){
 			$this->request->data['Company']['user_id'] = $this->Auth->user('id');
 			$this->Company->save($this->data);
@@ -242,12 +270,13 @@ class PagesController extends AppController {
 		}
 
 		$this->render('company');
-	}
+	}*/
 
 	public function change_company($id = null) {
 		if(!empty($this->data)){
 			$this->Company->save($this->data);
 			unset($this->data);
+			$this->Session->setFlash('Информация обновлена');
 			// $this->redirect(array('controller' => 'pages', 'action' => 'my_companies'));
 		}
 
@@ -301,16 +330,15 @@ class PagesController extends AppController {
 				$count = $this->User->find('count', array('conditions' => array('email' => $this->data['User']['email'])));
 				if ($count == 0){
 					$this->request->data['User']['company_id'] = $company[0]['Company']['id'];
-					debug($company);
-					debug($this->data);
+					// debug($company);
+					// debug($this->data);
 					// die();
 					$this->User->save($this->data);
+					$this->Session->setFlash('Вы успешно зарегистрированы');
 				}
 			}
 		}
-		
 	}
-	
 
 	/*public function add_client_to_company($id = null){
 		if(!empty($this->data)){

@@ -1,7 +1,9 @@
 <?php 
 	$html_tasks = null;
+
 	foreach ($client as $task) {
 
+		$status = null;
 		$add_task_link = $this->Html->div('col', $this->Html->link('Создать подзадачу', 
 			array('controller' => 'pages', 'action' => 'new_task', 'Task', $task['Task']['id']), 
 			array('class' => 'btn btn-success')));
@@ -16,12 +18,14 @@
 			if($user['id'] == $user_id){
 				$take_link = $this->Html->div('col', $this->Html->link('комент', 
 					array('controller' => 'pages', 'action' => 'commit_task', $task['Task']['id']), 
-					array('class' => 'btn btn-success')));
-				$edit_link = null;
+					array('class' => 'btn btn-success'))
+				);
+				if($task['Task']['status'] == 3) { $status = ' (Готово)'; }
+				$add_task_link = null;
 				break;
 			} else{
 				$take_link = null;
-				$edit_link = null;
+				$add_task_link = null;
 			}
 
 		}
@@ -33,15 +37,14 @@
 			$take_link = null;
 		}
 
-		$html_task  = $this->Html->div('col-5', $task['Task']['name']);
+		$html_task  = $this->Html->div('col-5', $task['Task']['name'] . $status);
 		$html_task .= $add_task_link;
 		$html_task .= $edit_link;
 		$html_task .= $take_link;
-
 		
-		
-		$html_task .= $html_child;
+		// $html_task .= ;
 		$html_tasks .= $this->Html->div('div-parent col-10', $html_task);
+		$html_tasks .= $html_child;
 	}
 	
 	echo $html_tasks;

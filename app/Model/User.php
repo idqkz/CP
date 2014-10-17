@@ -5,7 +5,8 @@ class User extends AppModel {
 
 	public $hasAndBelongsToMany = array(
 		'Task' => array(
-			'className' => 'Task'
+			'className' => 'Task',
+			'order' => 'Task.created',
 		)
 	);
 
